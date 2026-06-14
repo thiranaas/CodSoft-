@@ -129,17 +129,5 @@ Generate another password with the same settings? (y/n): y
 Generate another password with the same settings? (y/n): n
 
 ✅ Goodbye! Keep your passwords safe.
-```
-
 ---
 
-## 👤 Author
-
-**Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
