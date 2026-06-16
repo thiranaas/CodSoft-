@@ -1,103 +1,23 @@
 # 🔐 Password Generator
 
-A simple and powerful command-line Password Generator built with Python. Generate strong, random passwords with full control over length and complexity — including uppercase letters, digits, and special symbols.
+A lightweight, interactive command-line password generator written in Python. It lets you create strong, randomized passwords with full control over length and character complexity — no external dependencies required.
 
 ---
 
-## 📋 Table of Contents
+## Features
 
-- [About](#about)
-- [Features](#features)
-- [Requirements](#requirements)
-- [How to Run](#how-to-run)
-- [How to Use](#how-to-use)
-- [Password Strength Guide](#password-strength-guide)
-- [Project Structure](#project-structure)
-- [Sample Output](#sample-output)
-- [Author](#author)
+- Customizable password length (minimum 4 characters)
+- Optional inclusion of uppercase letters, digits, and symbols
+- Guarantees at least one character from each selected category
+- Shuffles the final password to eliminate predictable patterns
+- Built-in password strength indicator (Weak / Moderate / Strong)
+- Option to regenerate multiple passwords with the same settings
 
 ---
 
-## About
+## Usage
 
-This project is a terminal-based Password Generator that allows users to create secure, randomized passwords based on their preferences. Users can specify the desired password length and choose which character types to include. The tool also evaluates and displays the strength of the generated password.
-
----
-
-## ✨ Features
-
-- 📏 Custom password length (minimum 4 characters)
-- 🔠 Toggle uppercase letters (A–Z)
-- 🔢 Toggle digits (0–9)
-- 🔣 Toggle special symbols (!@#$%^&*...)
-- ✅ Guarantees at least one character from each selected type
-- 💪 Password strength indicator (Weak / Moderate / Strong)
-- 🔁 Generate multiple passwords with the same settings
-- ⚠️ Input validation — handles invalid entries gracefully
-
----
-
-## Requirements
-
-- Python 3.x (no external libraries needed)
-- Only uses built-in modules: `random`, `string`
-
----
-
-## ▶️ How to Run
-
-**1. Clone or download the file:**
-
-```bash
-git clone https://github.com/your-username/password-generator.git
-cd password-generator
-```
-
-**2. Run the script:**
-
-```bash
-python password_generator.py
-```
-
----
-
-## 🕹️ How to Use
-
-1. Enter your desired **password length** (must be 4 or more)
-2. Answer **Y/N** for each complexity option:
-   - Include uppercase letters?
-   - Include digits?
-   - Include symbols?
-3. Your **generated password** is displayed instantly
-4. View the **strength indicator**
-5. Choose to **generate another** with the same settings or exit
-
----
-
-## 🛡️ Password Strength Guide
-
-| Strength | Criteria |
-|----------|----------|
-| 💪 **Strong** | Length ≥ 12 AND uppercase + digits + symbols all enabled |
-| ⚠️ **Moderate** | Length ≥ 8 AND at least one of uppercase / digits / symbols |
-| ❌ **Weak** | Short length or minimal complexity options selected |
-
-> 💡 **Tip:** For maximum security, use a length of **16 or more** with all complexity options enabled.
-
----
-
-## 📁 Project Structure
-
-```
-password-generator/
-│
-├── password_generator.py    # Main generator script
-└── README.md                # Project documentation
-```
-
----
-
-## 🖥️ Sample Output
+When you run the script, you will be guided through a short interactive prompt:
 
 ```
 =============================================
@@ -111,16 +31,7 @@ Customize complexity (press Enter to accept defaults):
   Include symbols (!@#...)?      (Y/n): y
 
 =============================================
-  Generated Password:  r$T7@mKz!2Lp#Wq9
-=============================================
-  Password Length  :  16 characters
-  Password Strength:  Strong 💪
-=============================================
-
-Generate another password with the same settings? (y/n): y
-
-=============================================
-  Generated Password:  X!9v@Qn3#mRt&Lk7
+  Generated Password:  kR7#mQ2@zL9!pW4$
 =============================================
   Password Length  :  16 characters
   Password Strength:  Strong 💪
@@ -129,5 +40,34 @@ Generate another password with the same settings? (y/n): y
 Generate another password with the same settings? (y/n): n
 
 ✅ Goodbye! Keep your passwords safe.
+```
+
 ---
 
+## Password Strength Criteria
+
+| Strength     | Conditions                                                                 |
+|--------------|----------------------------------------------------------------------------|
+| 💪 Strong    | Length ≥ 12 **and** uppercase + digits + symbols all enabled              |
+| ⚠️ Moderate  | Length ≥ 8 **and** at least one of uppercase, digits, or symbols enabled  |
+| Weak         | Any configuration that does not meet the above criteria                    |
+
+---
+
+## How It Works
+
+1. A character pool is built based on your selected options (lowercase is always included).
+2. At least one character is picked from each enabled category to satisfy complexity requirements.
+3. The remaining characters are filled randomly from the full pool.
+4. The complete list is shuffled to remove any positional bias.
+5. The final password is returned as a string.
+
+---
+
+## Security Note
+
+This script uses Python's built-in `random` module, which is suitable for general-purpose password generation. For cryptographically secure passwords in production or security-sensitive contexts, consider using `secrets.choice()` instead of `random.choice()`.
+
+---
+
+> If this tool saved you time or made your workflow a little safer, consider giving it a ⭐ on GitHub
